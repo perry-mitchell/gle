@@ -1,0 +1,31 @@
+{
+  "name": "gle",
+  "version": "0.0.0",
+  "description": "Global Log Engine: Environment-agnostic debugging & logging utility",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/buttercup/buttercup-browser-extension.git"
+  },
+  "keywords": [
+    "debug",
+    "log",
+    "logger",
+    "console",
+    "debugger",
+    "logging"
+  ],
+  "author": "Perry Mitchell <perry@perrymitchell.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/buttercup/buttercup-browser-extension/issues"
+  },
+  "homepage": "https://github.com/buttercup/buttercup-browser-extension#readme",
+  "dependencies": {
+    "ansi-styles": "^6.1.0",
+    "wildcard": "^2.0.0"
+  }
+}
