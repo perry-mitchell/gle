@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist",
+        "module": "commonjs",
+        "declaration": true,
+        "downlevelIteration": true,
+        "target": "es5"
+    },
+    "include": [
+        "./source/**/*"
+    ],
+    "exclude":[
+        "node_modules"
+    ]
+}

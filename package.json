@@ -4,6 +4,8 @@
   "description": "Global Log Engine: Environment-agnostic debugging & logging utility",
   "main": "dist/index.js",
   "scripts": {
+    "build": "npm run clean && tsc",
+    "clean": "rimraf dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,5 +29,10 @@
   "dependencies": {
     "ansi-styles": "^6.1.0",
     "wildcard": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^15.3.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.2.4"
   }
 }
