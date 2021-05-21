@@ -9,6 +9,19 @@ let __contextPatterns: DebugContexts = null,
     __contexts: DebugContexts = {};
 const __logColours: LogColours = {};
 
+export function createLog(context: string): (...args: Array<any>) => void {
+    if (!resolveContext(context)) return () => {};
+    const colour = __logColours[context] = (__logColours[context] || getNextColour());
+    return function __log(...logArgs: Array<any>): void {
+        const text = convertArguments(logArgs);
+        const callArgs = [
+            ...styleText(text, colour),
+            text
+        ];
+        console.log(...callArgs);
+    };
+}
+
 export function log(context: string, ...logArgs: Array<any>): void {
     if (!resolveContext(context)) return;
     const colour = __logColours[context] = (__logColours[context] || getNextColour());
