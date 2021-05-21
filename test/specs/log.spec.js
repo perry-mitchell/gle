@@ -1,6 +1,6 @@
 import sinon from "sinon";
 import { expect } from "chai";
-import { createLog, log, setLogRenderer } from "../../dist/index.mjs";
+import { createLog, log, setLogRenderer } from "../../dist/index.js";
 
 describe("log", function() {
     beforeEach(function() {
