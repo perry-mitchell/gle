@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
-    "build": "snowpack build",
+    "build": "snowpack build && npm run declarations",
+    "declarations": "tsc --emitDeclarationOnly",
     "dev": "snowpack dev",
     "prepublishOnly": "npm run build",
     "test": "npm run build && npm run test:specs",
