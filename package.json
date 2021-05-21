@@ -16,7 +16,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/buttercup/buttercup-browser-extension.git"
+    "url": "git+https://github.com/perry-mitchell/gle.git"
   },
   "keywords": [
     "debug",
@@ -29,9 +29,9 @@
   "author": "Perry Mitchell <perry@perrymitchell.net>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/buttercup/buttercup-browser-extension/issues"
+    "url": "https://github.com/perry-mitchell/gle/issues"
   },
-  "homepage": "https://github.com/buttercup/buttercup-browser-extension#readme",
+  "homepage": "https://github.com/perry-mitchell/gle#readme",
   "dependencies": {
     "ansi-styles": "^6.1.0",
     "pretty-ms": "^7.0.1",
