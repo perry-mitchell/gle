@@ -11,17 +11,24 @@ export function getGlobalObject(): any {
     throw new Error("Unable to determine global context");
 }
 
-export function styleText(text: string, hexColour: string): Array<string> {
+export function styleLogLine(prefix: string, content: string, suffix: string, hexColour: string): Array<string> {
     const globalObject = getGlobalObject();
     if (globalObject.process?.stdout?.isTTY === true) {
         // Use ANSI styling
+        const colourOpen = ansiStyles.color.ansi16m(...ansiStyles.hexToRgb(hexColour));
         return [
-            `${ansiStyles.color.ansi16m(...ansiStyles.hexToRgb(hexColour))}${text}${ansiStyles.color.close}`
+            `${colourOpen}${prefix}${ansiStyles.color.close}`,
+            content,
+            `${colourOpen}${suffix}${ansiStyles.color.close}`
         ];
     } else if (globalObject.navigator?.userAgent) {
-        // Use console colours
-        return [`%c${text}`, `color:${hexColour}`];
+        return [
+            `%c${prefix} %c${content} %c${suffix}`,
+            `color:${hexColour}`,
+            "",
+            `color:${hexColour}`
+        ];
     }
     // Use no colour
-    return [text];
+    return [prefix, content, suffix];
 }

@@ -3,7 +3,7 @@ import prettyMS from "pretty-ms";
 import { getNextColour } from "./colour";
 import { getDebugContextPatterns } from "./env";
 import { convertArguments } from "./conversion";
-import { styleText } from "./compat";
+import { styleLogLine } from "./compat";
 import { getLogRenderer } from "./render";
 import { DebugContexts, LogColours, LogTimes } from "./types";
 
@@ -31,11 +31,12 @@ function renderLog(context: string, logArgs: Array<any>, colour: string): void {
     const now = __logTimes[context] = Date.now();
     const timeSinceLast: number = Math.max(0, now - lastContextTime);
     const text = convertArguments(logArgs, " ");
-    const callArgs = [
-        ...styleText(context, colour),
+    const callArgs = styleLogLine(
+        context,
         text,
-        ...styleText(`+${prettyMS(timeSinceLast, { compact: true })}`, colour)
-    ];
+        `+${prettyMS(timeSinceLast, { compact: true })}`,
+        colour
+    );
     const renderLog = getLogRenderer();
     renderLog(...callArgs);
 }
