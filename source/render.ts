@@ -10,6 +10,6 @@ export function getLogRenderer(): LogRenderer {
     return __renderer;
 }
 
-export function setLogRenderer(renderer: LogRenderer): void {
-    __renderer = renderer;
+export function setLogRenderer(renderer?: LogRenderer): void {
+    __renderer = renderer || __renderConsole;
 }
