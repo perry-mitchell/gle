@@ -2,6 +2,7 @@
     "compilerOptions": {
         "outDir": "./dist",
         "module": "commonjs",
+        "esModuleInterop": true,
         "declaration": true,
         "downlevelIteration": true,
         "target": "es5"
