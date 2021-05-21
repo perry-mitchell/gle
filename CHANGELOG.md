@@ -1,5 +1,10 @@
 # GLE Changelog
 
+## v0.1.2
+_2021-05-21_
+
+ * Typescript definitions bugfix
+
 ## v0.1.1
 _2021-05-21_
 
