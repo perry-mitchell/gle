@@ -4,6 +4,7 @@ import { getNextColour } from "./colour";
 import { getDebugContextPatterns } from "./env";
 import { convertArguments } from "./conversion";
 import { styleText } from "./compat";
+import { getLogRenderer } from "./render";
 import { DebugContexts, LogColours, LogTimes } from "./types";
 
 let __contextPatterns: DebugContexts = null,
@@ -34,7 +35,8 @@ function renderLog(context: string, logArgs: Array<any>, colour: string): void {
         text,
         ...styleText(`+${prettyMS(lastContextTime, { compact: true })}`, colour)
     ];
-    console.log(...callArgs);
+    const renderLog = getLogRenderer();
+    renderLog(...callArgs);
 }
 
 function resolveContext(context: string): boolean {
