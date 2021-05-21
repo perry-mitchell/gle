@@ -13,7 +13,7 @@ const __logColours: LogColours = {};
 const __logTimes: LogTimes = {};
 
 export function createLog(context: string): (...args: Array<any>) => void {
-    if (!resolveContext(context)) return () => {};
+    if (!resolveContext(context)) return (...logArgs: Array<any>) => {};
     const colour = __logColours[context] = (__logColours[context] || getNextColour());
     return function __log(...logArgs: Array<any>): void {
         renderLog(context, logArgs, colour);
@@ -28,12 +28,13 @@ export function log(context: string, ...logArgs: Array<any>): void {
 
 function renderLog(context: string, logArgs: Array<any>, colour: string): void {
     const lastContextTime: number = __logTimes[context] ? __logTimes[context] : Date.now();
-    __logTimes[context] = Date.now();
-    const text = convertArguments(logArgs);
+    const now = __logTimes[context] = Date.now();
+    const timeSinceLast: number = Math.max(0, now - lastContextTime);
+    const text = convertArguments(logArgs, " ");
     const callArgs = [
         ...styleText(context, colour),
         text,
-        ...styleText(`+${prettyMS(lastContextTime, { compact: true })}`, colour)
+        ...styleText(`+${prettyMS(timeSinceLast, { compact: true })}`, colour)
     ];
     const renderLog = getLogRenderer();
     renderLog(...callArgs);
@@ -51,4 +52,8 @@ function resolveContext(context: string): boolean {
         }
     }
     return __contexts[context];
+}
+
+export function toggleContext(context: string, enabled: boolean): void {
+    __contexts[context] = enabled;
 }

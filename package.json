@@ -46,6 +46,7 @@
     "renamer": "^3.0.2",
     "sinon": "^10.0.0",
     "snowpack": "^3.5.0",
+    "strip-ansi": "^7.0.0",
     "typescript": "^4.2.4"
   }
 }

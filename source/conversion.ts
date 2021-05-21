@@ -1,8 +1,8 @@
-export function convertArguments(...args: Array<any>): string {
+export function convertArguments(args: Array<any>, joiner: string): string {
     return args
         .map((arg: any) => {
             if (Array.isArray(arg)) {
-                return `[${convertArguments(arg)}]`;
+                return `[${convertArguments(arg, ", ")}]`;
             }
             if (arg && typeof arg === "object" && typeof arg.toString === "function") {
                 return arg.toString();
@@ -12,5 +12,5 @@ export function convertArguments(...args: Array<any>): string {
             }
             return `${arg}`;
         })
-        .join(" ");
+        .join(joiner);
 }
