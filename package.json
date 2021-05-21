@@ -4,6 +4,7 @@
   "description": "Global Log Engine: Environment-agnostic debugging & logging utility",
   "main": "dist/index.js",
   "type": "module",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "snowpack build && npm run declarations",
     "declarations": "tsc --emitDeclarationOnly",
