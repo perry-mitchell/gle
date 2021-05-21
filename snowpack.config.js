@@ -10,6 +10,11 @@ export default {
         out: path.resolve(__dirname, "./dist")
     },
 
+    optimize: {
+        minify: false,
+        target: "es2017"
+    },
+
     plugins: [
         ["@snowpack/plugin-typescript"]
     ],
