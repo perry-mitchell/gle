@@ -1,4 +1,4 @@
-const COLOURS = [
+const BROWSER_COLOURS = [
     "#a0937d",
     "#a7c5eb",
     "#bdd2b6",
@@ -21,7 +21,7 @@ let __sessionColours: Array<string> = null;
 
 export function getNextColour(): string {
     if (!__sessionColours) {
-        __sessionColours = [...COLOURS];
+        __sessionColours = [...BROWSER_COLOURS];
         shuffleArray(__sessionColours);
     }
     const colour = __sessionColours.shift();

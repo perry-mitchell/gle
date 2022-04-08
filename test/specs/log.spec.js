@@ -1,7 +1,7 @@
 import sinon from "sinon";
 import { expect } from "chai";
 import stripAnsi from "strip-ansi";
-import { createLog, log, setLogRenderer, toggleContext } from "../../dist/index.js";
+import { createLog, log, setLogRenderer, toggleContext } from "../../dist/node/index.js";
 
 async function sleep(time) {
     await new Promise(resolve => setTimeout(resolve, time));

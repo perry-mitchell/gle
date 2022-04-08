@@ -1,5 +1,5 @@
-import { getGlobalObject } from "./compat";
-import { DebugContexts } from "./types";
+import { getGlobalObject } from "./compat.js";
+import { DebugContexts } from "./types.js";
 
 export function getDebugContextPatterns(): DebugContexts {
     const flags = getEnvironmentDebugFlags();
@@ -27,4 +27,11 @@ function getEnvironmentDebugFlags(): Array<string> {
         globalObj.process.env.DEBUG.split(",").forEach((flag: string) => debugFlags.add(flag));
     }
     return [...debugFlags];
+}
+
+export function getEnvironmentType(): "node" | "browser" {
+    if (typeof process === "undefined" || (<any> process).type === 'renderer' || (<any> process).browser === true || (<any> process).__nwjs) {
+        return "browser";
+    }
+    return "node";
 }
