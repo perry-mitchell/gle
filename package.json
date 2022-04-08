@@ -1,6 +1,6 @@
 {
   "name": "gle",
-  "version": "1.0.0-1",
+  "version": "1.0.0-2",
   "description": "Global Log Engine: Environment-agnostic debugging & logging utility",
   "exports": {
     ".": {
