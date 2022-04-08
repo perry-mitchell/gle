@@ -1,11 +1,11 @@
 import wildcard from "wildcard";
 import prettyMS from "pretty-ms";
-import { getNextColour } from "./colour";
-import { getDebugContextPatterns } from "./env";
-import { convertArguments } from "./conversion";
-import { styleLogLine } from "./compat";
-import { getLogRenderer } from "./render";
-import { DebugContexts, LogColours, LogTimes } from "./types";
+import { getNextColour } from "./colour.js";
+import { getDebugContextPatterns } from "./env.js";
+import { convertArguments } from "./conversion.js";
+import { styleLogLine } from "./compat.js";
+import { getLogRenderer } from "./render.js";
+import { DebugContexts, LogColours, LogTimes } from "./types.js";
 
 let __contextPatterns: DebugContexts = null,
     __contexts: DebugContexts = {};
