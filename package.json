@@ -2,11 +2,11 @@
   "name": "gle",
   "version": "1.0.0-1",
   "description": "Global Log Engine: Environment-agnostic debugging & logging utility",
-  "main": "dist/node/index.js",
-  "browser": "dist/web/index.js",
   "exports": {
-    ".": "./dist/node/index.js",
-    "./web": "./dist/web/index.js"
+    ".": {
+      "browser": "./dist/web/index.js",
+      "default": "./dist/node/index.js"
+    }
   },
   "type": "module",
   "types": "dist/node/index.d.ts",
