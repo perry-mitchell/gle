@@ -1,6 +1,6 @@
 {
   "name": "gle",
-  "version": "0.1.4",
+  "version": "1.0.0-0",
   "description": "Global Log Engine: Environment-agnostic debugging & logging utility",
   "main": "dist/node/index.js",
   "exports": {
