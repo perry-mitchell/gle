@@ -17,7 +17,7 @@
     "dev": "tsc --watch",
     "prepublishOnly": "npm run build",
     "test": "npm run build:node && npm run test:specs",
-    "test:specs": "c8 --src ./dist --check-coverage --lines 70 --functions 70 --branches 70 --statements 70 mocha 'test/specs/**/*.spec.js'"
+    "test:specs": "c8 --src ./dist --check-coverage --lines 70 --functions 70 --branches 60 --statements 70 mocha 'test/specs/**/*.spec.js'"
   },
   "files": [
     "dist/**/*"
