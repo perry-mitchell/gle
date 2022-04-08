@@ -3,6 +3,7 @@
   "version": "1.0.0-0",
   "description": "Global Log Engine: Environment-agnostic debugging & logging utility",
   "main": "dist/node/index.js",
+  "browser": "dist/web/index.js",
   "exports": {
     ".": "./dist/node/index.js",
     "./web": "./dist/web/index.js"
