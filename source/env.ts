@@ -20,7 +20,7 @@ export function getDebugContextPatterns(): DebugContexts {
 function getEnvironmentDebugFlags(): Array<string> {
     const globalObj = getGlobalObject();
     const debugFlags = new Set<string>();
-    if (typeof globalObj.localStorage?.debug === "string") {
+    if (storageAvailable(globalObj) && typeof globalObj.localStorage?.debug === "string") {
         globalObj.localStorage.debug.split(",").forEach((flag: string) => debugFlags.add(flag));
     }
     if (typeof globalObj.process?.env?.DEBUG === "string") {
@@ -34,4 +34,36 @@ export function getEnvironmentType(): "node" | "browser" {
         return "browser";
     }
     return "node";
+}
+
+/**
+ * Check if storage is available
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API
+ */
+ function storageAvailable(win: Window): boolean {
+    let storage: Storage;
+    try {
+        storage = win.localStorage;
+        const x = "__storage_test__";
+        storage.setItem(x, x);
+        storage.removeItem(x);
+        return true;
+    } catch (e) {
+        return (
+            typeof DOMException !== "undefined" &&
+            e instanceof DOMException &&
+            // everything except Firefox
+            (e.code === 22 ||
+                // Firefox
+                e.code === 1014 ||
+                // test name field too, because code might not be present
+                // everything except Firefox
+                e.name === "QuotaExceededError" ||
+                // Firefox
+                e.name === "NS_ERROR_DOM_QUOTA_REACHED") &&
+            // acknowledge QuotaExceededError only if there's something already stored
+            storage &&
+            storage.length !== 0
+        );
+    }
 }

@@ -1,11 +1,12 @@
 {
     "compilerOptions": {
         "outDir": "./dist/node",
-        "module": "ES2020",
+        "module": "esnext",
         "moduleResolution": "node",
         "esModuleInterop": true,
         "declaration": true,
         "downlevelIteration": true,
+        "strict": false,
         "target": "ES2015"
     },
     "include": [
