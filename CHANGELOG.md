@@ -1,5 +1,11 @@
 # GLE Changelog
 
+## v1.0.0
+_2022-04-11_
+
+ * Node/Web builds
+ * [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c)
+
 ## v0.1.4
 _2021-05-21_
 
