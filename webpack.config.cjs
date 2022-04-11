@@ -4,9 +4,15 @@ const ResolveTypeScriptPlugin = require("resolve-typescript-plugin");
 const config = {
     entry: path.resolve(__dirname, "./source/index.ts"),
 
+    experiments: {
+        outputModule: true
+    },
+
     externals: [
         "ansi-styles"
     ],
+
+    externalsType: "module",
 
     module: {
         rules: [
@@ -24,7 +30,12 @@ const config = {
     output: {
         filename: "index.js",
         path: path.resolve(__dirname, "./dist/web"),
-        libraryTarget: "commonjs2"
+        library: {
+            type: "module"
+        },
+        environment: {
+            module: true
+        }
     },
 
     resolve: {
