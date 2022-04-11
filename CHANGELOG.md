@@ -1,5 +1,10 @@
 # GLE Changelog
 
+## v1.0.1
+_2022-04-11_
+
+ * Detect `localStorage` access
+
 ## v1.0.0
 _2022-04-11_
 
