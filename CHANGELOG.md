@@ -1,5 +1,11 @@
 # GLE Changelog
 
+## v1.0.2
+_2022-07-01_
+
+ * **Bugfix**:
+   * Strip `ansi-styles` import in web build
+
 ## v1.0.1
 _2022-04-11_
 
