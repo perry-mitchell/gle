@@ -1,5 +1,4 @@
 const path = require("path");
-const { IgnorePlugin } = require("webpack");
 const ResolveTypeScriptPlugin = require("resolve-typescript-plugin");
 
 const config = {
@@ -35,13 +34,10 @@ const config = {
         }
     },
 
-    plugins: [
-        new IgnorePlugin({
-            resourceRegExp: /ansi-styles/
-        })
-    ],
-
     resolve: {
+        alias: {
+            "ansi-styles": false
+        },
         extensions: [".ts", ".js"],
         fallback: {
             fs: false,
